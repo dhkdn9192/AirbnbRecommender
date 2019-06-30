@@ -7,6 +7,8 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
   * Airbnb의 csv 데이터를 로드하는 함수들을 구현한 object
   *
   * 각 로드함수의 반환 결과는 DataFrame이다.
+  * 
+  * (data url : http://insideairbnb.com/get-the-data.html)
   *
   * 2019.06.30 by dhkim
   * */

@@ -47,11 +47,15 @@ object AirbnbMain {
     // ALS recommendations
     val rating = Recommender.getRating(spark, listingsDf: DataFrame, neigbourhoodsDf: DataFrame, reviewsDetailDf: DataFrame)
     val mse = Recommender.trainModel(sc, rating, 3, PATH_ALS_MODEL)
+
+    // >> Mean Squared Error = 0.003322032007912435
     println(">> Mean Squared Error = " + mse)
+
+    // load model and make recommendations
     val loadedModel = Recommender.loadModel(sc, PATH_ALS_MODEL)
     val recommendations = Recommender.getRecommendations(spark, loadedModel, 5, reviewerMap, neighbourhoodMap)
 
-    // 최종 결과 DataFrame을 parquet 형태로 저장: 실제 프로덕션이라면 hdfs에 저장하도록 변경
+    // 최종 결과 DataFrame을 parquet 형태로 저장 (실제 서비스에선 mysql등 db에 저장해야 함)
     recommendations.write.parquet(PATH_RESULT_PARQUET)
 
     // 결과 출력
