@@ -9,12 +9,12 @@ import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 import org.apache.spark.sql.functions.col
 import org.apache.spark.mllib.recommendation.{ALS, MatrixFactorizationModel, Rating}
 
-
 /**
   * ALS 알고리즘을 사용하여 추천 숙박지역을 계산하는 object
   *
   * load된 dataframe들을 join하여 rating dataframe을 생성한 뒤 ALS 모델을 학습시킨다
   *
+  * 2019.06.30 by dhkim
   */
 
 object Recommender {

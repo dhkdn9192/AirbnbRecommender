@@ -5,13 +5,15 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 /**
   * main object
   *
-  * 목표: Airbnb의 일본 지역 오픈데이터를 활용하여 고객들에게 신규 여행지를 추천하는 추천시스템을 구현한다.
+  * Airbnb의 일본 지역 오픈데이터를 활용하여 고객들에게 신규 여행지를 추천하는 추천시스템을 구현한다.
   *
+  * 2019.06.30 by dhkim
   */
 
 object AirbnbMain {
 
   val PATH_ALS_MODEL = "/Users/dhkdn9192/jupyter/yanolja/data/airbnb/model"
+  val PATH_RESULT_PARQUET = "/Users/dhkdn9192/jupyter/yanolja/data/airbnb/resultDf.parquet"
 
   def main(args: Array[String]): Unit = {
 
@@ -49,13 +51,11 @@ object AirbnbMain {
     val loadedModel = Recommender.loadModel(sc, PATH_ALS_MODEL)
     val recommendations = Recommender.getRecommendations(spark, loadedModel, 5, reviewerMap, neighbourhoodMap)
 
+    // 최종 결과 DataFrame을 parquet 형태로 저장: 실제 프로덕션이라면 hdfs에 저장하도록 변경
+    recommendations.write.parquet(PATH_RESULT_PARQUET)
 
-
+    // 결과 출력
     recommendations.show(10, false)
-
-
-
-
 
   }
 }

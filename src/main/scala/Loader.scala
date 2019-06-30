@@ -8,6 +8,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
   *
   * 각 로드함수의 반환 결과는 DataFrame이다.
   *
+  * 2019.06.30 by dhkim
   * */
 
 object Loader {
