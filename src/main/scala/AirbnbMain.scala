@@ -12,6 +12,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 
 object AirbnbMain {
 
+  // 파일 경로 변수
   val PATH_ALS_MODEL = "/Users/dhkdn9192/jupyter/yanolja/data/airbnb/model"
   val PATH_RESULT_PARQUET = "/Users/dhkdn9192/jupyter/yanolja/data/airbnb/resultDf.parquet"
 
@@ -60,6 +61,22 @@ object AirbnbMain {
 
     // 결과 출력
     recommendations.show(10, false)
+    /**
+      * +----------+------------+----------------------------------------------------------------------------+
+      * |reviewerId|reviewerName|neighbourhoodNames                                                          |
+      * +----------+------------+----------------------------------------------------------------------------+
+      * |100583296 |靖修          |[Hamura Shi, Niijima Mura, Higashikurume Shi, Hinohara Mura, Kozushima Mura]|
+      * |13959744  |Julien      |[Hamura Shi, Inagi Shi, Niijima Mura, Shinjuku Ku, Kozushima Mura]          |
+      * |37084608  |Barbara     |[Inagi Shi, Hinohara Mura, Akishima Shi, Niijima Mura, Higashiyamato Shi]   |
+      * |149361088 |Raghav      |[Hamura Shi, Akishima Shi, Toshima Ku, Koganei Shi, Nakano Ku]              |
+      * |25902656  |Nancy       |[Hamura Shi, Inagi Shi, Niijima Mura, Tachikawa Shi, Kunitachi Shi]         |
+      * |175806848 |Mohd        |[Hamura Shi, Akishima Shi, Toshima Ku, Koganei Shi, Nakano Ku]              |
+      * |100134848 |Young       |[Hamura Shi, Niijima Mura, Inagi Shi, Kozushima Mura, Shinjuku Ku]          |
+      * |21623616  |Emma        |[Hamura Shi, Niijima Mura, Inagi Shi, Kozushima Mura, Sumida Ku]            |
+      * |27406016  |Cheerqiao   |[Hamura Shi, Inagi Shi, Niijima Mura, Tachikawa Shi, Kunitachi Shi]         |
+      * |196298304 |해호          |[Akishima Shi, Kunitachi Shi, Inagi Shi, Minato Ku, Higashiyamato Shi]      |
+      * +----------+------------+----------------------------------------------------------------------------+
+      */
 
   }
 }

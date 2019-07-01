@@ -7,7 +7,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
   * Airbnb의 csv 데이터를 로드하는 함수들을 구현한 object
   *
   * 각 로드함수의 반환 결과는 DataFrame이다.
-  * 
+  *
   * (data url : http://insideairbnb.com/get-the-data.html)
   *
   * 2019.06.30 by dhkim
@@ -39,8 +39,8 @@ object Loader {
       .read
       .schema(reviewsDetailSchema)
       .format("csv")
-      .option("header", "true") //first line in file has headers
-      .option("mode", "DROPMALFORMED")
+      .option("header", "true")           // first line in file has headers
+      .option("mode", "DROPMALFORMED")    // 포맷이 깨진 레코드는 버림
       .load(PATH_REVIEWS_DETAIL)
       .select(col("listing_id"), col("date"), col("reviewer_id"), col("reviewer_name"))
       .as("reviewsDetailDf")
@@ -87,8 +87,8 @@ object Loader {
       .read
       .schema(listingsSchema)
       .format("csv")
-      .option("header", "true") //first line in file has headers
-      .option("mode", "DROPMALFORMED")
+      .option("header", "true")         //first line in file has headers
+      .option("mode", "DROPMALFORMED")  // 포맷이 깨진 레코드는 버림
       .load(PATH_LISTINGS)
       .select(col("id"), col("host_id"), col("host_name"), col("neighbourhood"))
       .as("listingsDf")
@@ -121,8 +121,8 @@ object Loader {
       .read
       .schema(neighbourhoodsSchema)
       .format("csv")
-      .option("header", "true") //first line in file has headers
-      .option("mode", "DROPMALFORMED")
+      .option("header", "true")         //first line in file has headers
+      .option("mode", "DROPMALFORMED")  // 포맷이 깨진 레코드는 버림
       .load(PATH_NEIGHBOURHOOD)
       .drop("neighbourhood_group")
       .withColumn("neighbourhood_id", monotonically_increasing_id())  // 각 지역에 대한 고유 인덱스값 칼럼 추가
@@ -166,9 +166,5 @@ object Loader {
 
     reviewerMap
   }
-
-
-
-
 
 }
