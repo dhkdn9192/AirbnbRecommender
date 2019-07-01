@@ -168,22 +168,22 @@ object Recommender {
       .withColumn("date", nowDatetimeUdf())
 
     /**
-      * recommendationsDf.show(10)
+      * recommendationsDf.show()
       *
-      * +----------+------------+----------------------------------------------------------------------------+
-      * |reviewerId|reviewerName|neighbourhoodNames                                                          |
-      * +----------+------------+----------------------------------------------------------------------------+
-      * |100583296 |靖修          |[Hamura Shi, Niijima Mura, Higashikurume Shi, Hinohara Mura, Kozushima Mura]|
-      * |13959744  |Julien      |[Hamura Shi, Inagi Shi, Niijima Mura, Shinjuku Ku, Kozushima Mura]          |
-      * |37084608  |Barbara     |[Inagi Shi, Hinohara Mura, Akishima Shi, Niijima Mura, Higashiyamato Shi]   |
-      * |149361088 |Raghav      |[Hamura Shi, Akishima Shi, Toshima Ku, Koganei Shi, Nakano Ku]              |
-      * |25902656  |Nancy       |[Hamura Shi, Inagi Shi, Niijima Mura, Tachikawa Shi, Kunitachi Shi]         |
-      * |175806848 |Mohd        |[Hamura Shi, Akishima Shi, Toshima Ku, Koganei Shi, Nakano Ku]              |
-      * |100134848 |Young       |[Hamura Shi, Niijima Mura, Inagi Shi, Kozushima Mura, Shinjuku Ku]          |
-      * |21623616  |Emma        |[Hamura Shi, Niijima Mura, Inagi Shi, Kozushima Mura, Sumida Ku]            |
-      * |27406016  |Cheerqiao   |[Hamura Shi, Inagi Shi, Niijima Mura, Tachikawa Shi, Kunitachi Shi]         |
-      * |196298304 |해호          |[Akishima Shi, Kunitachi Shi, Inagi Shi, Minato Ku, Higashiyamato Shi]      |
-      * +----------+------------+----------------------------------------------------------------------------+
+      * +----------+------------+----------------------------------------------------------------------------+----------+
+      * |reviewerId|reviewerName|neighbourhoodNames                                                          |date      |
+      * +----------+------------+----------------------------------------------------------------------------+----------+
+      * |100583296 |靖修          |[Fussa Shi, Ogasawara Mura, Higashikurume Shi, Kokubunji Shi, Hinohara Mura]|2019-07-01|
+      * |13959744  |Julien      |[Ogasawara Mura, Tachikawa Shi, Fussa Shi, Shinjuku Ku, Niijima Mura]       |2019-07-01|
+      * |37084608  |Barbara     |[Tachikawa Shi, Higashikurume Shi, Inagi Shi, Adachi Ku, Kodaira Shi]       |2019-07-01|
+      * |149361088 |Raghav      |[Fussa Shi, Higashikurume Shi, Oshima Machi, Toshima Ku, Kokubunji Shi]     |2019-07-01|
+      * |25902656  |Nancy       |[Ogasawara Mura, Hamura Shi, Hinohara Mura, Suginami Ku, Tachikawa Shi]     |2019-07-01|
+      * |175806848 |Mohd        |[Fussa Shi, Higashikurume Shi, Oshima Machi, Toshima Ku, Kokubunji Shi]     |2019-07-01|
+      * |100134848 |Young       |[Fussa Shi, Ogasawara Mura, Tachikawa Shi, Shinjuku Ku, Kokubunji Shi]      |2019-07-01|
+      * |21623616  |Emma        |[Fussa Shi, Ogasawara Mura, Kokubunji Shi, Sumida Ku, Shinjuku Ku]          |2019-07-01|
+      * |27406016  |Cheerqiao   |[Ogasawara Mura, Hamura Shi, Hinohara Mura, Suginami Ku, Tachikawa Shi]     |2019-07-01|
+      * |196298304 |해호          |[Ogasawara Mura, Niijima Mura, Kokubunji Shi, Minato Ku, Taito Ku]          |2019-07-01|
+      * +----------+------------+----------------------------------------------------------------------------+----------+
       */
 
     recommendationsDf

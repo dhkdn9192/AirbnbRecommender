@@ -61,22 +61,6 @@ object AirbnbMain {
 
     // 결과 출력
     recommendations.show(10, false)
-    /**
-      * +----------+------------+----------------------------------------------------------------------------+----------+
-      * |reviewerId|reviewerName|neighbourhoodNames                                                          |date      |
-      * +----------+------------+----------------------------------------------------------------------------+----------+
-      * |100583296 |靖修          |[Fussa Shi, Ogasawara Mura, Higashikurume Shi, Kokubunji Shi, Hinohara Mura]|2019-07-01|
-      * |13959744  |Julien      |[Ogasawara Mura, Tachikawa Shi, Fussa Shi, Shinjuku Ku, Niijima Mura]       |2019-07-01|
-      * |37084608  |Barbara     |[Tachikawa Shi, Higashikurume Shi, Inagi Shi, Adachi Ku, Kodaira Shi]       |2019-07-01|
-      * |149361088 |Raghav      |[Fussa Shi, Higashikurume Shi, Oshima Machi, Toshima Ku, Kokubunji Shi]     |2019-07-01|
-      * |25902656  |Nancy       |[Ogasawara Mura, Hamura Shi, Hinohara Mura, Suginami Ku, Tachikawa Shi]     |2019-07-01|
-      * |175806848 |Mohd        |[Fussa Shi, Higashikurume Shi, Oshima Machi, Toshima Ku, Kokubunji Shi]     |2019-07-01|
-      * |100134848 |Young       |[Fussa Shi, Ogasawara Mura, Tachikawa Shi, Shinjuku Ku, Kokubunji Shi]      |2019-07-01|
-      * |21623616  |Emma        |[Fussa Shi, Ogasawara Mura, Kokubunji Shi, Sumida Ku, Shinjuku Ku]          |2019-07-01|
-      * |27406016  |Cheerqiao   |[Ogasawara Mura, Hamura Shi, Hinohara Mura, Suginami Ku, Tachikawa Shi]     |2019-07-01|
-      * |196298304 |해호          |[Ogasawara Mura, Niijima Mura, Kokubunji Shi, Minato Ku, Taito Ku]          |2019-07-01|
-      * +----------+------------+----------------------------------------------------------------------------+----------+
-      */
 
   }
 }
