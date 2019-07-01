@@ -1,12 +1,14 @@
 
 import java.io.File
 import java.nio.file.{Files, Paths}
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import org.apache.commons.io.FileUtils
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.{DataFrame, Row, SparkSession}
-import org.apache.spark.sql.functions.col
+import org.apache.spark.sql.functions.{col, udf}
 import org.apache.spark.mllib.recommendation.{ALS, MatrixFactorizationModel, Rating}
 
 /**
@@ -157,8 +159,13 @@ object Recommender {
       .add(StructField("reviewerName", StringType, true))
       .add(StructField("neighbourhoodNames", ArrayType(StringType), true))
 
+    // 오늘 날짜를 생성하는 udf
+    val nowDatetimeUdf = udf(() => DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDateTime.now))
+
     // RDD[Row]를 DataFrame으로 변환
-    val recommendationsDf = spark.createDataFrame(recommendationsRdd, schema)
+    val recommendationsDf = spark
+      .createDataFrame(recommendationsRdd, schema)
+      .withColumn("date", nowDatetimeUdf())
 
     /**
       * recommendationsDf.show(10)
